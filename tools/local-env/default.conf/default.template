@@ -4,7 +4,7 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	server_name ${SERVER_NAME};
+	server_name ${SERVER_NAMES};
 
 	client_max_body_size 1g;
 
