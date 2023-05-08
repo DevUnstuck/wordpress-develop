@@ -5,7 +5,7 @@ RUN docker-php-ext-install mysqli
 RUN apt-get update \
     && apt-get install vim strace procps less -y
 
-# Install wpcli
+# Install wpcli because wordpressdevelop/cli does not work consistenly and is AMD only.
 RUN curl --output-dir /usr/local/bin -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x /usr/local/bin/wp-cli.phar \
     && mv /usr/local/bin/wp-cli.phar /usr/local/bin/wp

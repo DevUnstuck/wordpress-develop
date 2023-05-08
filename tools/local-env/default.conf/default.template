@@ -34,7 +34,7 @@ server {
 server {
 	    listen *:443 ssl http2;
 
-        server_name  ${SERVER_NAME};
+        server_name  ${SERVER_NAMES};
 		ssl_certificate /root/devunstuck.pub; 
 		ssl_certificate_key /root/devunstuck-key.pem;
 
@@ -58,6 +58,10 @@ server {
                 fastcgi_param PATH_INFO $fastcgi_path_info;
                 fastcgi_pass_header Authorization;
         }
+		location ~* \.(css)$ {
+				expires max;
+				add_header Cache-Control "public, max-age=31536000, immutable";
+		}
 		proxy_read_timeout 900;
         proxy_connect_timeout 900;
         proxy_send_timeout 900;
