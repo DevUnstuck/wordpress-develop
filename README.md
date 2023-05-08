@@ -32,11 +32,13 @@ The custom PHP image comes bundled with wpcli and xdebug.
 
 The [wordpressdevelop/cli](https://registry.hub.docker.com/r/wordpressdevelop/cli#!) image doesn't have an ARM compatible version and can behave in unpredictable ways.
 So, instead of being a seperate image, wpcli is installed inside the PHP container. 
+This has the benefit of always using the same version of PHP for `wpcli` and `php-fpm`.
 
 #### Usage
-The "wp_php" user is setup to use instead of root for WPCLI commands.
-Before running `wp` command within container, you will need to`su wp_php`.
-An added benefit is the assurance of always knowing `wpcli` and `php-fpm` are using the same version of PHP.
+
+To run WPCLI commands, should use **wp_php** user instead of root. 
+To run `wp` commands, first `su wp_php`. 
+
 
 
 ### Xdebug
