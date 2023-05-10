@@ -2,7 +2,7 @@
 
 This fork of [wordpress-develop](https://github.com/WordPress/wordpress-develop) is configured to work more effeciently with ARM processors, specifically Apple Silicon chips like M1 and M2.
 
-Usage is nearly identical to the original project, see Official ([README.md](https://github.com/WordPress/wordpress-develop/blob/trunk/README.md)) and check out the notes below.
+Usage is nearly identical to the original project ([README.md](https://github.com/WordPress/wordpress-develop/blob/trunk/README.md)). 
 
 Compared with the original project, Docker services images use `arm` platform where possible. 
 
