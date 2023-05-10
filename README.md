@@ -13,9 +13,9 @@ Whether you want to contribute to WordPress core or just work on your own projec
 ### Nginx
 
 #### Certificates
-Update the contents of the public and private certificate keys stored in `/tools/local-env/`, but keep the file names:  
-- update `tools/local-env/devunstuck-key.pem` with a new private Key.
-- update `tools/local-env/devunstuck.pub` with the paired public Key.
+To enable HTTPS, create the public and private certificate keys at the following locations( using `ssh-keygen` or other tool ):  
+- Create `tools/local-env/devunstuck-key.pem` private Key.
+- Create `tools/local-env/devunstuck.pub` public Key.
 
 If you choose to change the name of the filenames as well, then also update `ssl_certificate_key` and `ssl_certificate` in the nginx conf file `tools/local-env/default.conf/default.template` to match.
 
@@ -28,21 +28,17 @@ For example, you may set the env variable `SERVER_NAME='devunstuck1.local, devun
 The use of custom PHP image([devunstuck / php-xdebug-wpcli-arm](https://hub.docker.com/repository/docker/devunstuck/php-xdebug-wpcli-arm)) may be the biggest difference between this fork and the original project. 
 The custom PHP image comes bundled with wpcli and xdebug.
 
+It is based on [php - Official Image](https://hub.docker.com/_/php), and can be used in similar fashion.
 
-### WPCLI
+Includes:
+- [WP-CLI](https://wp-cli.org/) 
+    - The official [wordpressdevelop/cli](https://registry.hub.docker.com/r/wordpressdevelop/cli#!) image doesn't have a ARM compatible version.
+    Rather than using a seperate container, wpcli is installed to avoid setup struggles on devices like Apple Silicon powered M1, M2.
+- [Xdebug](https://xdebug.org/).
+- strace
 
-The [wordpressdevelop/cli](https://registry.hub.docker.com/r/wordpressdevelop/cli#!) image doesn't have a ARM compatible version and can behave in unpredictable ways.
-So, in addition to the `linux/amd64` image, you have the option to use wpcli from within inside the PHP container. 
-This has the added benefit of always using the same version of PHP for `wpcli` and `php-fpm`.
+## WPCLI
+To run `wp` commands, first `su wp_php`, so as not to use root. Then run `wp ...` command like usual.
 
-#### Usage
-
-To run WPCLI commands, should use **wp_php** user instead of root. 
-To run `wp` commands, first `su wp_php`. 
-
-
-
-### Xdebug
-
-Xdebug is enabled by default in the php container. 
-Have fun finding and fixing issues. :)
+## Xdebug
+Xdebug is enabled by default.
