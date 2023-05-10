@@ -1,12 +1,12 @@
-# WordPress
+# WordPress Develop for ARM
 
 This fork of [wordpress-develop](https://github.com/WordPress/wordpress-develop) is configured to work more effeciently with ARM processors, specifically Apple Silicon chips like M1 and M2.
 
 Usage is nearly identical to the original project, see Official ([README.md](https://github.com/WordPress/wordpress-develop/blob/trunk/README.md)) and check out the notes below.
 
-Compared with the original project, Docker services in this fork use ARM images where possible. 
+Compared with the original project, Docker services images use `arm` platform where possible. 
 
-Whether you want to contribute to WordPress core or just work on your own projects, using the official WP image for contributors, this fork speeds up development on ARM-based machines.
+Whether you want to contribute to WordPress core or work on your own projects using the official WP image for contributors, the mods in this fork should speed up your time to code.
 
 ## Notes and config options
 
