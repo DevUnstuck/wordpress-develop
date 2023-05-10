@@ -21,7 +21,7 @@ To enable HTTPS, create the public and private certificate keys at the following
 - Create `tools/local-env/devunstuck.pub` public Key.
 
 If you choose to rename the keys with your own custom key pair name, remember to also:
-- Update `volumes:` in `wordpress-develop` 
+- Update the relevant `volumes:` entries in `wordpress-develop` service.
 - Update`ssl_certificate_key` and `ssl_certificate` in the nginx conf file `tools/local-env/default.conf/default.template` to match.
     ```
     ...
