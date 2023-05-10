@@ -4,7 +4,10 @@ This fork of [wordpress-develop](https://github.com/WordPress/wordpress-develop)
 
 Usage is nearly identical to the original project ([README.md](https://github.com/WordPress/wordpress-develop/blob/trunk/README.md)). 
 
-Compared with the original project, the Docker services' images in this build use `arm` platform where possible. 
+Main differences Compared with the original project:
+- the Docker services' images in this build use `arm` platform where possible. 
+- WPCLI is bundled into the PHP image.
+- Nginx and PHP are pre-configured for lengthy debugging sessions.
 
 Whether you want to contribute to WordPress core or work on your own projects using the official WP image for contributors, the mods in this fork should speed up your time to code.
 
@@ -17,9 +20,18 @@ To enable HTTPS, create the public and private certificate keys at the following
 - Create `tools/local-env/devunstuck-key.pem` private Key.
 - Create `tools/local-env/devunstuck.pub` public Key.
 
-If you choose to change the name of the filenames as well, then also update `ssl_certificate_key` and `ssl_certificate` in the nginx conf file `tools/local-env/default.conf/default.template` to match.
+If you choose to rename the keys with your own custom key pair name, remember to also:
+- Update `volumes:` in `wordpress-develop` 
+- Update`ssl_certificate_key` and `ssl_certificate` in the nginx conf file `tools/local-env/default.conf/default.template` to match.
+    ```
+    ...
+    ssl_certificate /root/custom-key-pair-name;
+    ssl_certificate_key /root/custom-key-pair-name;
+    ...
+    ```
 
-#### ServerNames This fork is allows you to create multiple test servers that can run simultaneosly on the nginx container.
+#### ServerNames 
+You can create multiple test servers to run simultaneosly on the nginx container.
 For example, you may set the env variable `SERVER_NAME='devunstuck1.local, devunstuck2.local'`, to create 2 seperate servers that use the same configuration.
 
 
