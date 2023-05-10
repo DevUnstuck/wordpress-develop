@@ -4,7 +4,7 @@ This fork of [wordpress-develop](https://github.com/WordPress/wordpress-develop)
 
 Usage is nearly identical to the original project ([README.md](https://github.com/WordPress/wordpress-develop/blob/trunk/README.md)). 
 
-Compared with the original project, Docker services images use `arm` platform where possible. 
+Compared with the original project, the Docker services' images in this build use `arm` platform where possible. 
 
 Whether you want to contribute to WordPress core or work on your own projects using the official WP image for contributors, the mods in this fork should speed up your time to code.
 
