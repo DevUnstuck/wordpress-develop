@@ -4,6 +4,9 @@
 wp-config.php
 wp-tests-config.php
 .htaccess
+# keys for HTTPS cert
+tools/local-env/devunstuck.pub
+tools/local-env/devunstuck-key.pem
 
 # Files and folders related to build/test tools
 .phpunit.result.cache
