@@ -24,7 +24,7 @@ To create 2 seperate servers that use the same configuration, for example, you m
 ```
   wordpress-develop:
     environment:
-      SERVER_NAMES: 'wpdev1.local, wpdev2.local'
+      SERVER_NAMES: 'wpdev1.local wpdev2.local'
 ```
 
 #### Certificates
