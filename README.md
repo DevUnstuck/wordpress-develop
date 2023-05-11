@@ -1,4 +1,4 @@
-# WordPress Develop for ARM
+ WordPress Develop for ARM
 
 ## Purpose of this fork?
 
@@ -20,10 +20,15 @@ Whether you want to contribute to WordPress core or test your own projects again
 
 #### ServerNames 
 You can create multiple test servers to run simultaneosly on the nginx container.
-For example, you may set the env variable `SERVER_NAME='devunstuck1.local, devunstuck2.local'`, to create 2 seperate servers that use the same configuration.
+To create 2 seperate servers that use the same configuration, for example, you may set the env variable in `docker-compose.override.yml`. 
+```
+  wordpress-develop:
+    environment:
+      SERVER_NAMES: 'wpdev1.local, wpdev2.local'
+```
 
 #### Certificates
-To enable HTTPS, create public and private certificate keys at the following locations using `mkcert`:  
+To enable HTTPS, create public and private certificate key pair at the following locations, using `mkcert`:  
 - Create `tools/local-env/devunstuck-key.pem` private Key.
 - Create `tools/local-env/devunstuck.pub` public Key.
 
@@ -50,7 +55,9 @@ Includes:
 - strace
 
 ### WPCLI
-To run `wp` commands, first `su wp_php`, so as not to use root. Then run `wp ...` command like usual.
+To run `wp` commands, use the `wp_php` user.
+E.g. if the php container is named `du-wordpress-develop-php-1`, do:
+`docker exec -u wp_php du-wordpress-develop-php-1 wp help`
 
 ### Xdebug
 Xdebug is enabled by default.
