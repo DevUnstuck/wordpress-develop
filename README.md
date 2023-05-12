@@ -1,6 +1,6 @@
  WordPress Develop for ARM
 
-## Purpose of this fork?
+## Who is this fork for?
 
 This fork of [wordpress-develop](https://github.com/WordPress/wordpress-develop) is compatible with ARM processors, specifically Apple Silicon chips like M1 and M2.
 
@@ -14,14 +14,16 @@ Main differences as compared with the original project:
 
 Whether you want to contribute to WordPress core or test your own projects against bleeding edge of WordPress, the mods in this fork should speed up your time to code.
 
-## Notes and config options
+## Configuration
 
 ### Nginx
 
 #### ServerNames 
 You can create multiple test servers to run simultaneosly on the nginx container.
-To create 2 seperate servers that use the same configuration, for example, you may set the env variable in `docker-compose.override.yml`. 
+To create 2 seperate servers that use the same configuration.
+For example, you may set the env variable in `docker-compose.override.yml` like so:
 ```
+services:
   wordpress-develop:
     environment:
       SERVER_NAMES: 'wpdev1.local wpdev2.local'
@@ -29,8 +31,8 @@ To create 2 seperate servers that use the same configuration, for example, you m
 
 #### Certificates
 To enable HTTPS, create public and private certificate key pair at the following locations, using `mkcert`:  
-- Create `tools/local-env/devunstuck-key.pem` private Key.
-- Create `tools/local-env/devunstuck.pub` public Key.
+- Replace contents of `tools/local-env/devunstuck-key.pem` with private Key.
+- Replace contents of `tools/local-env/devunstuck.pub` with public Key.
 
 If you choose to rename the keys with your own custom key pair name, remember to also:
 - Update the relevant `volumes:` entries in `wordpress-develop` service.
@@ -41,6 +43,9 @@ If you choose to rename the keys with your own custom key pair name, remember to
     ssl_certificate_key /root/custom-key-pair-name;
     ...
     ```
+
+
+## Notes
 
 ### PHP
 
