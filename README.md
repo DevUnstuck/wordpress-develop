@@ -62,7 +62,9 @@ Includes:
 ### WPCLI
 To run `wp` commands, use the `wp_php` user.
 E.g. if the php container is named `du-wordpress-develop-php-1`, do:
-`docker exec -u wp_php du-wordpress-develop-php-1 wp help`
+```
+docker exec -u wp_php du-wordpress-develop-php-1 wp help
+```
 
 ### Xdebug
 Xdebug is enabled by default.
