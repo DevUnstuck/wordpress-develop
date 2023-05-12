@@ -9,8 +9,7 @@ Usage is nearly identical to the original project ([README.md](https://github.co
 Main differences as compared with the original project:
 - Docker services use `arm` image builds.
 - WPCLI is bundled into the PHP image, as opposed to running in seperate container. See [Notes](#notes).
-- SSL config supporting multiple server names( no more browser security certificate error headaches ).
-- Nginx and PHP are pre-configured for lengthy xdebugging sessions.
+- Support for multiple server names with shared certificates ( no more browser HTTPS CA error headaches ).
 
 Whether you want to contribute to WordPress core or test your own projects against bleeding edge of WordPress, the mods in this fork should speed up your time to code.
 
@@ -68,3 +67,4 @@ docker exec -u wp_php du-wordpress-develop-php-1 wp help
 
 ### Xdebug
 Xdebug is enabled by default.
+Nginx and PHP are pre-configured to stay connected during very long xdebugging sessions.
