@@ -54,8 +54,8 @@ The image is based on [php - Official Image](https://hub.docker.com/_/php), and 
 Includes:
 - [WP-CLI](https://wp-cli.org/) 
     - The official [wordpressdevelop/cli](https://registry.hub.docker.com/r/wordpressdevelop/cli#!) image doesn't have a ARM compatible version.
-    Rather than using a seperate container, wpcli is installed to avoid setup struggles on devices like Apple Silicon powered M1, M2.
-- [Xdebug](https://xdebug.org/).
+    Rather than running as a seperate container, `wpcli` is installed directly within PHP container.
+- [Xdebug](https://xdebug.org/)
 - strace
 
 ### WPCLI
