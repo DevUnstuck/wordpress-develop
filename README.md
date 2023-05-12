@@ -7,10 +7,10 @@ This fork of [wordpress-develop](https://github.com/WordPress/wordpress-develop)
 Usage is nearly identical to the original project ([README.md](https://github.com/WordPress/wordpress-develop/blob/trunk/README.md)). 
 
 Main differences as compared with the original project:
-- Docker services' images in this build use `arm` platform where possible. 
-- WPCLI is bundled into the PHP image, as opposed to running in seperate container.
+- Docker services use `arm` image builds.
+- WPCLI is bundled into the PHP image, as opposed to running in seperate container. See [Notes](#notes).
+- SSL config supporting multiple server names( no more browser security certificate error headaches ).
 - Nginx and PHP are pre-configured for lengthy xdebugging sessions.
-- Easier SSL config supporting multiple server names( no more annoying browser security roadblocks).
 
 Whether you want to contribute to WordPress core or test your own projects against bleeding edge of WordPress, the mods in this fork should speed up your time to code.
 
