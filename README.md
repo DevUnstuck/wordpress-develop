@@ -20,8 +20,8 @@ Whether you want to contribute to WordPress core or test your own projects again
 
 #### ServerNames 
 You can create multiple test servers to run simultaneosly on the nginx container.
-To create 2 seperate servers that use the same configuration.
-For example, you may set the env variable in `docker-compose.override.yml` like so:
+To create 2 servers, for example, set the `SERVER_NAMES` env variable.
+E.g. in`docker-compose.override.yml`:
 ```
 services:
   wordpress-develop:
